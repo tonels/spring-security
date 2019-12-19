@@ -75,62 +75,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                    .logoutSuccessHandler(logoutSuccessHandler());
     }
 
-
-
-    /*
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-            .antMatchers("/").permitAll()
-            .antMatchers("/welcome").hasAnyRole("USER", "ADMIN")
-            .antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
-            .antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated()
-       .and()
-            .formLogin()
-                .successHandler(successHandler)
-                .loginPage("/login").permitAll().and().logout().permitAll();
-
-        http.csrf().disable();
-    }
-    */
-
-   /*
-
-   @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .disable()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                //.and()
-                *//*.formLogin()
-                .successHandler(loginSuccessHandler())
-                .failureHandler(authenticationFailureHandler())*//*
-                .and()
-                .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler())
-                .and()
-                .logout()
-                .logoutSuccessHandler(logoutSuccessHandler())
-                .and()
-                .userDetailsService(userDetailsService)
-                //OPTIONS请求全部放行
-                .authorizeRequests()
-                .antMatchers(*//*HttpMethod.OPTIONS,*//* "/**").permitAll()
-                .antMatchers("/auth/login").permitAll()
-                .antMatchers("/auth/logout").permitAll()
-                .accessDecisionManager(accessDecisionManager());
-        //使用自定义的 Token过滤器 验证请求的Token是否合法
-        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-        super.configure(http);
-    }
-
-    */
-
-
     @Bean
     public LoginSuccessHandler loginSuccessHandler(){
         return new LoginSuccessHandler();
