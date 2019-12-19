@@ -54,6 +54,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .csrf()
+            .disable()
                 // 给角色授接口权限
             .authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
