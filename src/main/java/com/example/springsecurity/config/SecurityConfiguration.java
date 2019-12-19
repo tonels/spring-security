@@ -33,7 +33,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("admin").roles("ADMIN")
              .and()
                 .withUser("ls").password("ls").roles("DEV");
-
     }
 
     /**
@@ -45,10 +44,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Bean
     public PasswordEncoder getPasswordEncoder() {
-
         return NoOpPasswordEncoder.getInstance(); //
     }
-
     /**
      * 此处配置接口权限
      * @param http
